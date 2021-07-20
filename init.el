@@ -145,3 +145,6 @@
 
 ;; ESS
 (el-get-bundle ESS)
+
+;; Diminish
+(el-get-bundle diminish)
