@@ -1,0 +1,7 @@
+(:name tmtxt-async-tasks
+       :type github
+       :description "Tmtxt Dired Async"
+       :pkgname "tmtxt/tmtxt-dired-async"
+       :post-init
+       (progn
+         (require 'tmtxt-dired-async)))
