@@ -103,12 +103,12 @@
 (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
 (add-hook 'racket-mode-hook           #'enable-paredit-mode)
 (setq tab-always-indent 'complete)
-(bind-keys :map paredit-mode-map
-           ("{" . paredit-open-curly)
-           ("}" . paredit-close-curly)
-           ("M-[" . paredit-wrap-square)
-           ("M-{" . paredit-wrap-curly))
-
+(add-hook 'paredit-mode-hook
+          (lambda ()
+            (local-set-key (kbd "{") 'paredit-open-curly)
+            (local-set-key (kbd "}") 'paredit-close-curly)
+            (local-set-key (kbd "M-[") 'paredit-wrap-square)
+            (local-set-key (kbd "M-{") 'paredit-warp-curly)))
 
 (require 'eldoc)
 (eldoc-add-command 'paredit-backward-delete 'paredit-close-round)
@@ -144,7 +144,7 @@
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
 
 ;; ESS
-(el-get-bundle ESS)
+;; (el-get-bundle ESS)
 
 ;; Diminish
 (el-get-bundle diminish)
