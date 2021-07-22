@@ -58,9 +58,8 @@
 (el-get-bundle nord-emacs
   (load-theme 'nord t))
 (if window-system (tool-bar-mode -1))
-(tool-bar-mode -1)
+(if window-system (scroll-bar-mode -1))
 (menu-bar-mode -1)
-(scroll-bar-mode -1)
 (setq word-wrap t)
 (setq inhibit-startup-screen t)
 (setq tab-width 4)
