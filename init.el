@@ -148,3 +148,6 @@
 
 ;; Diminish
 (el-get-bundle diminish)
+
+;; Julia
+(el-get-bundle julia-mode)
