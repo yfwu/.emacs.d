@@ -10,6 +10,10 @@
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 (el-get 'sync)
 
+;; use-package
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+
 ;; Ease of life
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode t)
@@ -146,8 +150,41 @@
 ;; ESS
 ;; (el-get-bundle ESS)
 
+
+;; LSP
+(el-get-bundle lsp-mode)
+
+;; Haskell
+(el-get-bundle haskell-mode)
+(add-hook 'haskell-mode-hook #'lsp)
+
+;; Python
+(setenv "WORKON_HOME" "~/envs")
+(el-get-bundle pyvenv)
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))
+(use-package blacken
+  :ensure t)
+
 ;; Diminish
 (el-get-bundle diminish)
 
 ;; Julia
 (el-get-bundle julia-mode)
+
+;; Other variables
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

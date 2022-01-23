@@ -1,3 +1,5 @@
+.cache
+.lsp-session-v1
 .mc-lists.el
 irony
 anaconda-mode
