@@ -1,0 +1,4 @@
+(:name md-roam
+       :type github
+       :description "Use Org-roam with Markdown files"
+       :pkgname "nobiot/md-roam")

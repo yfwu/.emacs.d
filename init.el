@@ -122,7 +122,7 @@
 (setq markdown-fontify-code-blocks-natively t)
 
 ;; Magit and other git tools
-(el-get-bundle '(magit git-timemachine diff-hl))
+(el-get-bundle '(git-timemachine diff-hl))
 (global-diff-hl-mode t)
 
 ;; Abo-abo: ivy, swiper, counsel, ace-window
