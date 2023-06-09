@@ -129,6 +129,7 @@
 ;; https://github.com/abo-abo/swiper
 (el-get-bundle ace-window)
 (global-set-key (kbd "M-o") 'ace-window)
+(el-get-bundle hydra)
 (el-get-bundle swiper)
 (ivy-mode t)
 (setq ivy-initial-inputs-alist nil)
