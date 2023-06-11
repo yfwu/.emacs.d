@@ -81,7 +81,7 @@
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
 
-(set-frame-font "PT Mono 13" nil t)
+(set-frame-font "Iosevka YFWU 13" nil t)
 
 ;; Company-mode
 (el-get-bundle company-mode
@@ -96,7 +96,8 @@
   (add-hook 'racket-repl-mode-hook #'racket-unicode-input-method-enable)
   (add-hook 'racket-mode-hook      #'company-mode)
   (add-hook 'racket-repl-mode-hook #'company-mode)
-  (setq tab-always-indent 'complete))
+  ;;(setq tab-always-indent 'complete)
+  )
 
 (require 'racket-xp)
 (add-hook 'racket-mode-hook #'racket-xp-mode)
@@ -106,7 +107,7 @@
 (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
 (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
 (add-hook 'racket-mode-hook           #'enable-paredit-mode)
-(setq tab-always-indent 'complete)
+;; (setq tab-always-indent 'complete)
 (add-hook 'paredit-mode-hook
           (lambda ()
             (local-set-key (kbd "{") 'paredit-open-curly)
@@ -161,6 +162,7 @@
                           (lsp))))
 (use-package blacken
   :ensure t)
+(el-get-bundle code-cells)
 
 ;; Diminish
 (el-get-bundle diminish)
@@ -168,13 +170,18 @@
 ;; Julia
 (el-get-bundle julia-mode)
 
+;; Copilot
+(el-get-bundle copilot)
+(global-copilot-mode 1)
+(global-set-key (kbd "C-<tab>") 'copilot-accept-completion))
+
 ;; Other variables
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-)
+ )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
