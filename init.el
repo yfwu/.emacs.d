@@ -129,28 +129,20 @@
 ;; https://github.com/abo-abo/swiper
 (el-get-bundle ace-window)
 (global-set-key (kbd "M-o") 'ace-window)
-(el-get-bundle hydra)
-(el-get-bundle swiper)
-(ivy-mode t)
-(setq ivy-initial-inputs-alist nil)
-(setq enable-recursive-minibuffers t)
-(setq ivy-use-selectable-prompt t)
-(setq ivy-re-builders-alist `((t . ivy--regex-ignore-order)))
-(setq ivy-use-vertual-buffers t)
-(setq enable-recursive-minibuffers t)
-(global-set-key (kbd "C-s") 'swiper)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-set-key (kbd "C-c g") 'counsel-git)
-(global-set-key (kbd "C-c j") 'counsel-git-grep)
-(global-set-key (kbd "C-c k") 'counsel-ag)
-(global-set-key (kbd "C-x l") 'counsel-locate)
-(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-(define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
+
+;; Using the old School style smex instead of Swiper and Helm
+(el-get-bundle smex)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+(require 'ido)
+(ido-mode t)
 
 ;; ESS
 ;; (el-get-bundle ESS)
 
+;; Magit
+(el-get-bundle magit)
 
 ;; LSP
 (el-get-bundle lsp-mode)
