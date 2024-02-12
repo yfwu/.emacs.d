@@ -1,0 +1,4 @@
+(:name python-black
+       :type github
+       :pkgname "wbolster/emacs-python-black"
+       :depends (dash))

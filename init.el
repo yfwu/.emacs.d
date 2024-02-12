@@ -82,6 +82,9 @@
       scroll-conservatively 100000
       scroll-preserve-screen-position 1)
 
+(add-to-list 'default-frame-alist '(width  . 120))
+(add-to-list 'default-frame-alist '(height . 40))
+
 (set-frame-font "Iosevka YFWU 13" nil t)
 
 ;; Company-mode
@@ -175,12 +178,13 @@
 
 ;; Python
 (setenv "WORKON_HOME" "~/envs")
-(el-get-bundle pyvenv)
+(el-get-bundle virtualenvwrapper)
+(setq venv-location "~/.virtualenvs")
 (use-package lsp-pyright
   :ensure t
   :hook (python-mode . (lambda ()
-                          (require 'lsp-pyright)
-                          (lsp))))
+                         (require 'lsp-pyright)
+                         (lsp))))
 (use-package blacken
   :ensure t)
 (el-get-bundle code-cells)
