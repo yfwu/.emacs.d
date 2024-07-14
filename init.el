@@ -140,8 +140,10 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (setq ido-use-filename-at-point 'guess)
+(setq ido-create-new-buffer 'always)
+(setq-default confirm-nonexistent-file-or-buffer nil)
 (ido-vertical-mode 1)
-(setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right)
+(setq ido-vertical-define-keys 'C-n-and-C-p-only)
 
 ;; LSP
 (el-get-bundle lsp-mode)
