@@ -130,41 +130,12 @@
 (el-get-bundle '(git-timemachine diff-hl))
 (global-diff-hl-mode t)
 
-;; Abo-abo: ivy, swiper, counsel, ace-window
-;; https://github.com/abo-abo/swiper
-(el-get-bundle ace-window)
-(global-set-key (kbd "M-o") 'ace-window)
-(use-package ivy
-  :ensure t
-  :diminish (ivy-mode . "")
-  :config
-  (ivy-mode 1)
-  (setq ivy-use-virutal-buffers t)
-  (setq enable-recursive-minibuffers t)
-  (setq ivy-height 10))
-(use-package counsel
-  :ensure t
-  :bind (("M-x" . counsel-M-x)
-         ("C-x C-f" . counsel-find-file)
-         ("C-s" . swiper-isearch)
-         ("M-y" . counsel-yank-pop)
-         ("C-x b" . ivy-switch-buffer)
-         ("C-c v" . ivy-push-view)
-         ("C-c V" . ivy-pop-view)))
-(use-package swiper
-  :ensure t
-  :bind (("C-s" . swiper)))
-
 ;; Using the old School style smex instead of Swiper and Helm
-;; (el-get-bundle smex)
-;; (global-set-key (kbd "M-x") 'smex)
-;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-
-;; (require 'ido)
-;; (ido-mode t)
-
-;; ESS
-;; (el-get-bundle ESS)
+(el-get-bundle smex)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(require 'ido)
+(ido-mode t)
 
 ;; Magit
 (el-get-bundle magit)
@@ -176,24 +147,14 @@
 (el-get-bundle haskell-mode)
 (add-hook 'haskell-mode-hook #'lsp)
 
-;; Python
-(setenv "WORKON_HOME" "~/envs")
-(el-get-bundle virtualenvwrapper)
-(setq venv-location "~/.virtualenvs")
-(use-package lsp-pyright
-  :ensure t
-  :hook (python-mode . (lambda ()
-                         (require 'lsp-pyright)
-                         (lsp))))
-(use-package blacken
-  :ensure t)
-(el-get-bundle code-cells)
-
 ;; Diminish
 (el-get-bundle diminish)
 
 ;; Julia
 (el-get-bundle julia-mode)
+
+;; Zig
+(el-get-bundle zig-mode)
 
 ;; Copilot
 (el-get-bundle copilot)
@@ -201,17 +162,3 @@
 (add-hook 'prog-mode-hook 'copilot-mode)
 (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
 (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
-
-;; Other variables
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages '(blacken lsp-pyright compat)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
