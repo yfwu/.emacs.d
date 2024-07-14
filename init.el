@@ -160,6 +160,7 @@
 
 ;; Zig
 (el-get-bundle zig-mode)
+(el-get-bundle reformatter)
 
 ;; Copilot
 (el-get-bundle copilot)
