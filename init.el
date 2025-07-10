@@ -122,6 +122,10 @@
 (require 'eldoc)
 (eldoc-add-command 'paredit-backward-delete 'paredit-close-round)
 
+;; Lisp
+(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "sbcl")
+
 ;; Markdown-mode
 (el-get-bundle markdown-mode)
 (setq markdown-fontify-code-blocks-natively t)
@@ -170,6 +174,19 @@
 (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
 
 (el-get-bundle gptel)
+
+(setq initial-scratch-message "")
+(setq initial-major-mode 'markdown-mode)
+(defun save-scratch-to-obsidian ()
+  (interactive)
+  (let* ((default-directory "~/Obsidian/") ;; Use the symbolic link
+         (filename (read-string "Enter note name (without extension): "))
+         (filepath (concat default-directory filename ".md")))
+    (write-region (point-min) (point-max) filepath)
+    (message "Saved *scratch* to: %s" filepath)
+    (kill-buffer "*scratch*")
+    (switch-to-buffer "*scratch*")
+    (markdown-mode)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
